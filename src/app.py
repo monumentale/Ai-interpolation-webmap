@@ -39,7 +39,7 @@ navbar = dbc.Navbar(
                         # Use row and col to control vertical alignment of logo / brand
                         dbc.Row(
                                 [   dbc.Col(html.Img(src=LOGO, height="30px")),
-                                    dbc.Col(dbc.NavbarBrand("| Osita's Nigeria Network Coverage Map", className="ml-2")),
+                                    dbc.Col(dbc.NavbarBrand("|Nigeria Network Coverage Map", className="ml-2")),
                                 ],
                                 align="center",
                                 # no_gutters=True,
@@ -69,6 +69,15 @@ credits_tab = dbc.Card(
     className="mt-0",
 )
 
+credits_tab2 = dbc.Card(
+    dbc.CardBody(
+        dcc.Markdown(
+            """    Supervised by Dr. Iyke Maduako
+            """
+        ),
+    ),
+    className="mt-0",
+)
 # Longitude_Input=dbc.Input(value=7.352275,placeholder="input Longitude",type="number",id='longi')
 # Latitude_Input=dbc.Input(value=5.111047,type="number",placeholder="input Latitude",id='lati', )
 
@@ -79,9 +88,9 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(  # left layout
-                    [
+                    [credits_tab2 ,
                         credits_tab,
-                        dbc.CardHeader("Select CSV File"),
+                        dbc.CardHeader("Select Data To Display"),
                         csv_file_dropdown,  # Add the dropdown here
                         dbc.CardHeader("Search For A Location"),
                         # Latitude_Input,
